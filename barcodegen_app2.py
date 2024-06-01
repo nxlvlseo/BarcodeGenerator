@@ -30,7 +30,7 @@ def generate_barcode_with_name(product_name, upc_code):
     except OSError:
         font = ImageFont.load_default()
     
-    # Draw the truncated product name at the top
+    # Calculate text size and position to center justify the text
     text_bbox = draw.textbbox((0, 0), truncated_name, font=font)
     text_width = text_bbox[2] - text_bbox[0]
     text_position = ((width - text_width) / 2, 10)
