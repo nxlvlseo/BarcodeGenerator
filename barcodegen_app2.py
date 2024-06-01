@@ -25,7 +25,10 @@ def generate_barcode_with_name(product_name, upc_code):
     draw = ImageDraw.Draw(new_image)
     
     # Load a truetype or opentype font file
-    font = ImageFont.truetype("arial.ttf", size=30)
+    try:
+        font = ImageFont.truetype("DejaVuSans.ttf", size=30)
+    except OSError:
+        font = ImageFont.load_default()
     
     # Draw the truncated product name at the top
     text_bbox = draw.textbbox((0, 0), truncated_name, font=font)
