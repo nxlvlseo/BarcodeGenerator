@@ -8,8 +8,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 # Function to generate barcode image with product name
 def generate_barcode_with_name(product_name, upc_code):
-    # Truncate product name to 30 characters
-    truncated_name = product_name[:30]
+    # Truncate product name to 35 characters
+    truncated_name = product_name[:35]
     
     UPC = barcode.get_barcode_class('upc')
     upc = UPC(upc_code, writer=ImageWriter())
@@ -20,12 +20,12 @@ def generate_barcode_with_name(product_name, upc_code):
     width, height = barcode_image.size
     
     # Create a new image with additional space for the product name
-    new_height = height + 50
+    new_height = height + 80
     new_image = Image.new("RGB", (width, new_height), "white")
     draw = ImageDraw.Draw(new_image)
     
     # Load a truetype or opentype font file
-    font = ImageFont.load_default()
+    font = ImageFont.truetype("arial.ttf", size=30)
     
     # Draw the truncated product name at the top
     text_bbox = draw.textbbox((0, 0), truncated_name, font=font)
