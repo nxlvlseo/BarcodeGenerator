@@ -17,9 +17,11 @@ def generate_barcode_with_name(product_name, upc_code):
     width, height = barcode_image.size
     
     # Create a new image with additional space for the product name
-    new_height = height + 30
+    new_height = height + 50
     new_image = Image.new("RGB", (width, new_height), "white")
     draw = ImageDraw.Draw(new_image)
+    
+    # Load a truetype or opentype font file
     font = ImageFont.load_default()
     
     # Draw the product name at the top
@@ -28,7 +30,7 @@ def generate_barcode_with_name(product_name, upc_code):
     draw.text(text_position, product_name, fill="black", font=font)
     
     # Paste the barcode image below the product name
-    new_image.paste(barcode_image, (0, 30))
+    new_image.paste(barcode_image, (0, 50))
     
     return new_image
 
