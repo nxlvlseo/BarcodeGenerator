@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import barcode
 from barcode.writer import ImageWriter
-import base64
 from io import BytesIO
+import base64
 
 # Function to generate barcode image
 def generate_barcode(upc_code):
