@@ -1,4 +1,4 @@
 streamlit
 pandas
-barcode
-base64
+python-barcode
+pillow
