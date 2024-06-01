@@ -24,9 +24,9 @@ def generate_barcode_with_name(product_name, upc_code):
     new_image = Image.new("RGB", (width, new_height), "white")
     draw = ImageDraw.Draw(new_image)
     
-    # Load a truetype or opentype font file
+    # Load a truetype or opentype font file and reduce size by 10%
     try:
-        font = ImageFont.truetype("DejaVuSans.ttf", size=30)
+        font = ImageFont.truetype("DejaVuSans.ttf", size=27)  # 10% smaller than 30
     except OSError:
         font = ImageFont.load_default()
     
