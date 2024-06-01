@@ -25,7 +25,8 @@ def generate_barcode_with_name(product_name, upc_code):
     font = ImageFont.load_default()
     
     # Draw the product name at the top
-    text_width, text_height = draw.textsize(product_name, font=font)
+    text_bbox = draw.textbbox((0, 0), product_name, font=font)
+    text_width = text_bbox[2] - text_bbox[0]
     text_position = ((width - text_width) / 2, 10)
     draw.text(text_position, product_name, fill="black", font=font)
     
